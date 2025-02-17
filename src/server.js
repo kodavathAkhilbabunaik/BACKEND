@@ -3,7 +3,7 @@ import connectionURL from "./DB/database.js";
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-import router from "./routes/route.js";
+import router from "./routes/useroute.js"; 
 const app=express();
 dotenv.config({
     path:"./.env",
@@ -16,7 +16,7 @@ app.use(cors({
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.use(cookieParser());
-const PORT=process.env.PORT||5555
+const PORT=process.env.PORT||5118
 app.use("/user",router)
 connectionURL()
 .then(()=>{
